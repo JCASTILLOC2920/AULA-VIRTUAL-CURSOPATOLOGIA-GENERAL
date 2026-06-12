@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Virtual - Curso de Patología General</title>
+    <!-- Fuentes Modernas: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos UI/UX 2026 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BANNER SUPERIOR -->
+    <header>
+        <!-- Escudo UNMSM (Izquierda) -->
+        <div class="logo-container">
+            <img src="assets/unmsm_logo.svg" alt="Escudo UNMSM">
+        </div>
+        
+        <!-- Título Central -->
+        <h1>CURSO DE PATOLOGÍA GENERAL</h1>
+        
+        <!-- Escudo San Fernando (Derecha) -->
+        <div class="logo-container">
+            <img src="assets/san_fernando_logo.png" alt="Escudo Facultad de Medicina San Fernando">
+        </div>
+    </header>
+
+    <!-- ESTRUCTURA PRINCIPAL -->
+    <div class="main-layout">
+        
+        <!-- MENÚ LATERAL (Semanas) -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Los botones se generarán dinámicamente desde script.js -->
+        </aside>
+
+        <!-- ÁREA CENTRAL (Contenido de la Semana Seleccionada) -->
+        <main class="content-area" id="content-area">
+            <!-- El contenido se inyectará dinámicamente aquí -->
+        </main>
+        
+    </div>
+
+    <!-- Base de Datos del Curso -->
+    <script src="data.js"></script>
+    <!-- Lógica de Enrutamiento (Islands Architecture local) -->
+    <script src="script.js"></script>
+</body>
+</html>
