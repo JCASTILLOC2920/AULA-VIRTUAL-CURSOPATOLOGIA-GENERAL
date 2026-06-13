@@ -1,0 +1,31 @@
+:root {
+  --primary-hue: 220;
+  --primary-saturation: 60%;
+  --primary-lightness: 55%;
+  --accent-hue: 280;
+  --accent-saturation: 55%;
+  --accent-lightness: 65%;
+  --bg-color: hsl(0, 0%, 98%);
+  --glass-bg: rgba(255,255,255,0.2);
+  --glass-blur: 12px;
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Outfit", sans-serif;
+}
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-color);
+  color: hsl(var(--primary-hue), var(--primary-saturation), 20%);
+  margin:0;
+  padding:0;
+}
+.premium-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 12px;
+  padding: 1rem;
+}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+.fade-in {animation: fadeIn 0.8s ease forwards;}
