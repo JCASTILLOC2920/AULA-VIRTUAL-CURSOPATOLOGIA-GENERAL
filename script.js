@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       // Renderizar el contenido
       renderContent(weekData);
+      // Close sidebar/drawer on mobile when button clicked
+      sidebar.classList.remove('open');
+      const hamburger = document.getElementById('hamburger');
+      if (hamburger) hamburger.classList.remove('active');
     });
 
     sidebar.appendChild(btn);
@@ -37,6 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Renderizar la primera semana al cargar
   renderContent(window.courseData[0]);
+
+  // Hamburger drawer toggle
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+  }
 
   // 2. Función para renderizar el contenido en la zona principal
   function renderContent(weekData) {

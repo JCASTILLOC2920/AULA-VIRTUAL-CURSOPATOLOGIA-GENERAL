@@ -261,12 +261,43 @@ header h1 {
   background-color: rgba(255, 186, 186, 0.6);
 }
 
-/* =========================================
-   RESPONSIVIDAD (Móviles y Tablets)
-   ========================================= */
+/* Hamburger button styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 0;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 @media (max-width: 900px) {
   header h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
   .content-area {
     padding: 30px;
@@ -275,42 +306,63 @@ header h1 {
 
 @media (max-width: 768px) {
   body {
-    overflow: auto; /* Permitir scroll en toda la página en móvil */
+    overflow: hidden; /* Mantener viewport fijo en móvil para que no se descuadre */
   }
+  
   header {
-    height: auto;
-    padding: 15px;
-    flex-direction: column;
-    gap: 15px;
+    height: 80px;
+    padding: 0 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
   }
+  
   .logo-container {
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
   }
+  
   header h1 {
-    font-size: 24px;
+    font-size: 16px;
     margin: 0;
+    line-height: 1.2;
+  }
+
+  .hamburger {
+    display: flex;
   }
   
   .main-layout {
-    flex-direction: column;
-    overflow: visible;
+    position: relative;
+    height: calc(100vh - 80px);
+    overflow: hidden;
   }
   
   .sidebar {
-    width: 100%;
-    max-height: 250px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 80px;
+    left: -320px;
+    width: 280px;
+    height: calc(100vh - 80px);
+    z-index: 999;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: var(--surface-color);
+  }
+
+  .sidebar.open {
+    left: 0;
   }
   
   .content-area {
     padding: 20px 15px;
-    overflow-y: visible;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
   }
   
   .content-header h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
