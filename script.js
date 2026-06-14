@@ -133,4 +133,84 @@ document.addEventListener('DOMContentLoaded', () => {
     html += `</div>`;
     contentArea.innerHTML = html;
   }
+
+  // --- WEB SPEECH API (Voice Assistant Autónomo) ---
+  const voiceBtn = document.getElementById('voice-assistant-btn');
+  let isRecording = false;
+  let recognition;
+  
+  const voiceToast = document.createElement('div');
+  voiceToast.className = 'voice-toast';
+  document.body.appendChild(voiceToast);
+  
+  function showToast(msg, duration=3000) {
+      voiceToast.textContent = msg;
+      voiceToast.classList.add('show');
+      setTimeout(() => voiceToast.classList.remove('show'), duration);
+  }
+
+  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.lang = 'es-PE';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = function() {
+          isRecording = true;
+          if (voiceBtn) voiceBtn.classList.add('recording');
+          showToast("🎙️ Te escucho, Comandante...");
+      };
+
+      recognition.onresult = function(event) {
+          const speechResult = event.results[0][0].transcript.toLowerCase();
+          showToast(`🗣️ Orden recibida: "${speechResult}"`);
+          
+          let found = false;
+          
+          window.courseData.forEach((weekData) => {
+             const weekNum = weekData.week.toLowerCase(); 
+             if (speechResult.includes(weekNum) || speechResult.includes(weekNum.replace("semana ", ""))) {
+                 document.querySelectorAll('.week-btn').forEach(btn => {
+                     if (btn.innerText.toLowerCase().includes(weekNum)) {
+                         btn.click();
+                         found = true;
+                     }
+                 });
+             }
+          });
+          
+          if(!found) {
+              setTimeout(() => showToast("❌ Módulo no encontrado. Intente decir 'Semana 3'"), 2000);
+          }
+      };
+
+      recognition.onerror = function(event) {
+          showToast("❌ Error acústico: " + event.error);
+          isRecording = false;
+          if (voiceBtn) voiceBtn.classList.remove('recording');
+      };
+
+      recognition.onend = function() {
+          isRecording = false;
+          if (voiceBtn) voiceBtn.classList.remove('recording');
+      };
+
+      if (voiceBtn) {
+          voiceBtn.addEventListener('click', () => {
+              if (isRecording) {
+                  recognition.stop();
+              } else {
+                  recognition.start();
+              }
+          });
+      }
+  } else {
+      if (voiceBtn) {
+          voiceBtn.addEventListener('click', () => {
+              showToast("❌ Infraestructura de voz no compatible en este navegador.");
+          });
+      }
+  }
+
 });
