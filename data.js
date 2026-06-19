@@ -191,3 +191,189 @@ courseData.reverse();
 
 // Exporting to be accessible via window in the browser
 window.courseData = courseData;
+
+const theoryData = [
+  {
+    week: "SEMANA 1",
+    title: "Lesión y muerte celular",
+    date: "31/03/26",
+    teachers: "Dr. Walter Guitton, Dr. G. Cerrillo, Dr. W. Anicama",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "CLASE INAUGURAL",
+      "Lesión celular reversible e irreversible",
+      "Muerte celular: Mecanismos de lesión celular",
+      "Correlación clínico-patológica: Ejemplos de lesión y muerte celular"
+    ]
+  },
+  {
+    week: "SEMANA 2",
+    title: "Adaptación y acumulación celular",
+    date: "07/04/26",
+    teachers: "Dra. W. Quispe, Dra. D. Carayhua",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Adaptaciones del crecimiento y la diferenciación celular",
+      "Acumulaciones intracelulares",
+      "Calcificaciones patológicas",
+      "Envejecimiento celular"
+    ]
+  },
+  {
+    week: "SEMANA 3",
+    title: "Inflamación aguda",
+    date: "14/04/26",
+    teachers: "Dra. M. Peña, Dr. O. Reyes",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Perspectiva general de la inflamación: Definiciones y características generales",
+      "Inflamación aguda"
+    ]
+  },
+  {
+    week: "SEMANA 4",
+    title: "Inflamación crónica y reparación",
+    date: "21/04/26",
+    teachers: "Dr. D. Díaz, Dr. W. Guitton",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Inflamación crónica: Efectos sistémicos de la inflamación",
+      "Reparación de tejidos"
+    ]
+  },
+  {
+    week: "SEMANA 5",
+    title: "Trastornos hemodinámicos",
+    date: "28/04/26",
+    teachers: "Dr. J. Castillo, Dr. S. Dávila",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Edemas y derrames: Hiperemia y congestión",
+      "Hemostasia, trastornos hemorrágicos y trombosis",
+      "Embolia, Infarto y Shock"
+    ]
+  },
+  {
+    week: "SEMANA 6",
+    title: "Inmunopatología y trasplantes",
+    date: "05/05/26",
+    teachers: "Dra. R. Meléndez, Dr. E. Millones",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Hipersensibilidad: Lesión tisular mediada por el sistema inmunitario",
+      "Enfermedades autoinmunitarias",
+      "Rechazo de trasplantes"
+    ]
+  },
+  {
+    week: "SEMANA 7",
+    title: "Inmunodeficiencias y amiloidosis",
+    date: "12/05/26",
+    teachers: "Dr. W. Guitton, Dr. E. Millones",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Enfermedades por inmunodeficiencias",
+      "Amiloidosis"
+    ]
+  },
+  {
+    week: "SEMANA 8",
+    title: "I EXAMEN TEÓRICO",
+    date: "19/05/26",
+    teachers: "Equipo docente",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "I EXAMEN TEÓRICO"
+    ]
+  },
+  {
+    week: "SEMANA 9",
+    title: "Genética y enfermedad humana",
+    date: "26/05/26",
+    teachers: "Dra. G. Lara, Dra. A. Asencio",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Genes y enfermedad humana",
+      "Diagnóstico genético molecular"
+    ]
+  },
+  {
+    week: "SEMANA 10",
+    title: "Neoplasias benignas y malignas",
+    date: "02/06/26",
+    teachers: "Dr. C. Barrionuevo, Dra. N. Rosas",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Neoplasia: Nomenclatura",
+      "Características de las neoplasias benignas y malignas",
+      "Epidemiología de los tumores malignos"
+    ]
+  },
+  {
+    week: "SEMANA 11",
+    title: "Bases moleculares del cáncer",
+    date: "09/06/26",
+    teachers: "Dra. S. Dávila, Dra. S. Maldonado",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Bases moleculares de los tumores malignos: Función de las alteraciones genéticas y epigenéticas"
+    ]
+  },
+  {
+    week: "SEMANA 12",
+    title: "Carcinogénesis y aspectos clínicos",
+    date: "16/06/26",
+    teachers: "Dr. J. Somocurcio, Dra. Y. Limache",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Sustancias cancerígenas y sus interacciones celulares",
+      "Aspectos clínicos de las neoplasias"
+    ]
+  },
+  {
+    week: "SEMANA 13",
+    title: "Patogenia microbiana",
+    date: "23/07/26",
+    teachers: "Dra. G. Gutiérrez, Dr. O. Reyes",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Principios generales de la patogenia microbiana",
+      "Técnicas especiales para el diagnóstico de los agentes infecciosos"
+    ]
+  },
+  {
+    week: "SEMANA 14",
+    title: "Patología ambiental y laboral",
+    date: "30/07/26",
+    teachers: "Dr. J. Castillo, Dra. G. Gutiérrez",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Riesgos profesionales para la salud: Exposición industrial y agrícola",
+      "Efectos del tabaco y efectos del alcohol",
+      "Lesiones por fármacos terapéuticos y drogas de abuso"
+    ]
+  },
+  {
+    week: "SEMANA 15",
+    title: "Agentes físicos y nutrición",
+    date: "07/07/26",
+    teachers: "Dra. E. Paz, Dra. S. Maldonado",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "Daños por agentes físicos",
+      "Enfermedades nutricionales"
+    ]
+  },
+  {
+    week: "SEMANA 16",
+    title: "II EXAMEN TEÓRICO",
+    date: "14/07/26",
+    teachers: "Equipo docente",
+    location: "Auditorio Pardo Figueroa / Aula de teoría Instituto",
+    topics: [
+      "II EXAMEN TEÓRICO"
+    ]
+  }
+];
+
+window.theoryData = theoryData;

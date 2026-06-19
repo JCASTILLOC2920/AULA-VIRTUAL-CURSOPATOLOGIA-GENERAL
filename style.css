@@ -44,6 +44,57 @@ header {
   border-bottom: 2px solid var(--neon-blue);
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-toggle-container {
+  display: flex;
+  background: rgba(13, 8, 28, 0.6);
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: 30px;
+  gap: 5px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  padding: 10px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-btn i {
+  font-size: 15px;
+}
+
+.nav-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-red) 100%);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .logo-container {
   height: 70px;
   width: 70px;
@@ -60,16 +111,15 @@ header {
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 900;
   background: linear-gradient(135deg, #fff 30%, var(--neon-blue) 60%, var(--neon-red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  text-align: center;
-  flex: 1;
-  margin: 0 15px;
+  text-align: right;
+  margin: 0;
   filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
 }
 
@@ -129,6 +179,7 @@ header h1 {
   gap: 5px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* Evita que el botón se reduzca y corte el texto */
 }
 
 /* Efecto Hover Avanzado */
@@ -163,6 +214,7 @@ header h1 {
   font-weight: 700;
   color: var(--text-light);
   text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .week-btn.active .week-number {
@@ -173,6 +225,20 @@ header h1 {
   font-size: 15px;
   font-weight: 600;
   line-height: 1.3;
+  color: var(--text-dark); /* Color legible en fondo oscuro */
+  transition: color 0.3s ease;
+}
+
+.week-btn.active .week-title {
+  color: #ffffff;
+}
+
+.week-btn:hover .week-title {
+  color: #ffffff;
+}
+
+.week-btn:hover .week-number {
+  color: var(--neon-blue);
 }
 
 /* =========================================
@@ -604,5 +670,105 @@ header h1 {
 .voice-toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* =========================================
+   CRONOGRAMA TEÓRICO (VISTA DE CLASES)
+   ========================================= */
+.class-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--squircle-radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--shadow-squircle);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: var(--neon-blue);
+  box-shadow: var(--shadow-hover-blue);
+  transform: translateY(-2px);
+}
+
+.info-card i {
+  font-size: 24px;
+  color: var(--neon-blue);
+  background: rgba(0, 210, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.info-card p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.theory-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 30px 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theory-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* =========================================
+   RESPONSIVIDAD MÓVIL ADICIONAL
+   ========================================= */
+@media (max-width: 768px) {
+  .nav-btn span {
+    display: none; /* Oculta el texto de los botones en pantallas móviles */
+  }
+  
+  .nav-btn {
+    padding: 10px 14px;
+    border-radius: 20px;
+  }
+  
+  .header-left {
+    gap: 10px;
+  }
+  
+  .class-info-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 

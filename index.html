@@ -17,17 +17,28 @@
 
     <!-- BANNER SUPERIOR -->
     <header>
-        <!-- Escudo UNMSM (Izquierda) -->
-        <div class="logo-container">
-            <img src="assets/unmsm_logo.svg" alt="Escudo UNMSM">
+        <!-- Lado Izquierdo: Escudo UNMSM + Botones de Selección -->
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="assets/unmsm_logo.svg" alt="Escudo UNMSM">
+            </div>
+            
+            <div class="nav-toggle-container">
+                <button id="btn-cronograma-practico" class="nav-btn active">
+                    <i class="fas fa-laptop-medical"></i> <span>Cronograma Práctico</span>
+                </button>
+                <button id="btn-cronograma-teorico" class="nav-btn">
+                    <i class="fas fa-chalkboard-teacher"></i> <span>Cronograma de Clases</span>
+                </button>
+            </div>
         </div>
         
-        <!-- Título Central -->
-        <h1>CURSO DE PATOLOGÍA GENERAL</h1>
-        
-        <!-- Escudo San Fernando (Derecha) -->
-        <div class="logo-container">
-            <img src="assets/san_fernando_logo.png" alt="Escudo Facultad de Medicina San Fernando">
+        <!-- Lado Derecho: Título del Curso + Escudo San Fernando -->
+        <div class="header-right">
+            <h1>CURSO DE PATOLOGÍA GENERAL</h1>
+            <div class="logo-container">
+                <img src="assets/san_fernando_logo.png" alt="Escudo Facultad de Medicina San Fernando">
+            </div>
         </div>
 
         <!-- Botón Hamburger para móviles -->
